@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Gifted Veins</title>
+  <link rel="icon" href="/img/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/materialize.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    body { background: #f9fafb; color: #222; font-family: 'Poppins', sans-serif; }
+    .register-wrap { margin-top: 3rem; margin-bottom: 3rem; }
+    .register-panel {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .register-info h2 {
+      font-weight: 700;
+      color: #c62828;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .register-info p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-primary {
+      background: linear-gradient(180deg,#e53935,#c62828);
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .btn-primary:hover { background: linear-gradient(180deg,#d32f2f,#b71c1c); }
+    .row { margin-bottom: 1rem; }
+    .browser-default {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.6rem;
+      width: 100%;
+      background: #fff;
+    }
+
+    /* ✅ Success popup styling */
+    #success-popup {
+      display: none;
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    #success-popup h3 { color: #c62828; margin-bottom: 0.5rem; }
+    #success-popup p { color: #555; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -55%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+  </style>
+</head>
+<body class="gv-light">
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav white">
+      <div class="container nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-title">Gifted Veins</span>
+        </a>
+        <div class="nav-actions">
+          <a href="/bank" class="btn btn-outline">Find Donors</a>
+          <a href="/donate" class="btn btn-primary">Donate</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- REGISTRATION -->
+  <main class="container register-wrap">
+    <div class="register-panel card">
+      <div class="register-grid">
+        <div class="register-info center-align">
+          <h2>Join Gifted Veins</h2>
+          <p>Register to donate, receive certificates, and connect with the community.</p>
+        </div>
+
+        <div class="register-form">
+          <form id="registerForm" action="/register" method="POST" autocomplete="off">
+            <div class="input-field">
+              <input id="first_name" name="name" required type="text" placeholder="Full Name">
+            </div>
+
+            <div class="input-field">
+              <input id="address" name="address" required type="email" placeholder="Email">
+            </div>
+
+            <div class="row">
+              <div class="col s6">
+                <select name="blood" class="browser-default" required>
+                  <option value="">Blood Group</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="O">O</option>
+                  <option value="AB">AB</option>
+                </select>
+              </div>
+              <div class="col s6">
+                <select name="rh" class="browser-default" required>
+                  <option value="">Rh Factor</option>
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-field">
+              <input id="city" name="city" required type="text" placeholder="City">
+            </div>
+
+            <div class="input-field">
+              <input id="phone" name="phone" required type="text" placeholder="Phone Number">
+            </div>
+
+            <div class="row" style="margin-top:1.5rem;">
+              <label>
+                <input type="checkbox" required />
+                <span>I confirm I'm at least 18 years old.</span>
+              </label>
+            </div>
+
+            <div class="row right-align" style="margin-top:1.2rem;">
+              <button id="submitBtn" type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ✅ Success Popup -->
+  <div id="success-popup">
+    <h3>🎉 Registration Successful!</h3>
+    <p>Redirecting to your donation dashboard...</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer small">
+    <div class="container footer-inner">
+      <div>© 2025 Gifted Veins</div>
+    </div>
+  </footer>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/materialize.min.js"></script>
+
+  <script>
+    // ✅ Intercept form submission to show success message
+    const form = document.getElementById('registerForm');
+    const popup = document.getElementById('success-popup');
+    const button = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', (e) => {
+      // Change button text to indicate progress
+      button.innerText = "Registering...";
+      button.disabled = true;
+
+      // Show popup after short delay
+      setTimeout(() => {
+        popup.style.display = 'block';
+      }, 400);
+
+      // Auto redirect after 2.5 seconds
+      setTimeout(() => {
+        form.submit();
+      }, 2500);
+    });
+  </script>
+</body>
+</html>

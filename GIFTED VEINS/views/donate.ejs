@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donate — Gifted Veins</title>
+  <link rel="icon" href="/img/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/materialize.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="gv-light">
+
+  <header class="site-header">
+    <nav class="nav white">
+      <div class="container nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-title">Gifted Veins</span>
+        </a>
+        <div class="nav-actions">
+          <a href="/bank" class="btn btn-outline">Find Donors</a>
+          <a href="/" class="btn btn-ghost">Home</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="donation-panel card">
+      <div class="donation-grid">
+        <div class="donation-left">
+          <h2>Welcome, <span class="accent"><%= user.name %></span></h2>
+          <p class="muted">You have donated <strong><%= user.amount %></strong> Pint<%= user.amount == 1 ? '' : 's' %> so far.</p>
+        </div>
+
+        <div class="donation-right">
+          <form id="amountForm" action="/donate" method="post" class="donation-form">
+            <label for="amount">Amount (Pints)</label>
+            <input required id="amount" name="amount" type="number" min="1" max="5" value="1" />
+            <div class="donate-ctas">
+              <button type="submit" class="btn btn-primary"><i class="material-icons left">favorite</i> Donate</button>
+              <a href="/bank" class="btn btn-outline">Find Donors</a>
+            </div>
+            <p class="muted small">Last donated: <strong><%= user.lastDonated %></strong></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer small">
+    <div class="container footer-inner">
+      <div>© 2025 Gifted Veins</div>
+      <div><a href="/bank">Find Donors</a> • <a href="/">Home</a></div>
+    </div>
+  </footer>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/materialize.min.js"></script>
+</body>
+</html>
