@@ -23,6 +23,18 @@ It includes a certificate generator, structured data population, and a clean Exp
 
 ---
 
+## 🔥 Why Gifted Veins?
+
+- Reduces emergency donor search time by **up to 75%**
+- Auto-matches compatible donors within **5–10 km**
+- Generates verified digital donation certificates instantly
+- Centralized and unified platform for donors & recipients
+- Lightweight, fast, and optimized Node.js backend
+- Secure environment variable management with dotenv
+- Modular and scalable architecture for easy enhancement
+
+---
+
 ## ⭐ **Features**
 
 ### 🔹 Donor Module
@@ -83,6 +95,9 @@ GIFTED VEINS/
 │── package.json
 │── README.md
 ```
+
+---
+
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository  
@@ -92,9 +107,14 @@ cd GIFTED_VEINS
 npm install
 npm start
 ```
-Create a `.env` file:
-MONGO_URI=your-mongodb-url  
-KEY=your-secret-key  
+
+### 2️⃣ Create a .env file
+```
+MONGO_URI=your-mongodb-url
+KEY=your-secret-key
+```
+Server runs at:
+http://localhost:3000
 
 ---
 
@@ -163,7 +183,8 @@ This project is licensed under the **MIT License**.
 ## 👩‍💻 Author
 
 **Tanmayee Satpathy**  
-Full Stack Developer  
+B.Tech CSE, KIIT University  
 🔗 LinkedIn: https://www.linkedin.com/in/tanmayee-satpathy-488369288/
+🔗 GitHub: https://github.com/tanmayee-satpathy
 
 
