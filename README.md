@@ -14,6 +14,22 @@
 
 ---
 
+## 📚 Table of Contents
+- [Overview](#-overview)
+- [Why Gifted Veins?](#-why-gifted-veins)
+- [Features](#-features)
+- [Project Highlights](#-project-highlights)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#️-installation--setup)
+- [Environment Variables](#-environment-variables)
+- [API Endpoints](#-api-endpoints)
+- [Future Enhancements](#-future-enhancements)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
+- [License](#-license)
+
+---
 ## 📌 **Overview**
 
 GIFTED VEINS is a real-time blood donor–recipient matching system designed to reduce emergency response time.  
@@ -171,6 +187,12 @@ If you want to suggest improvements or new features:
 2. Create a new branch  
 3. Make your changes  
 4. Submit a pull request  
+
+---
+## 📞 Contact
+
+For queries or collaboration:  
+📧 Email: tanmayeesatpathy2004@gmail.com  
 
 ---
 
