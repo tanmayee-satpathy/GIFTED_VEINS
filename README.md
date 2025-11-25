@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tanmayee-satpathy/GIFTED_VEINS/main/banner.png" 
+       alt="Gifted Veins Banner" width="100%" />
+</p>
+
+
 <h1 align="center">🚀 GIFTED VEINS – Blood Donor Matching System</h1>
 
 <p align="center">
