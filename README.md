@@ -55,5 +55,85 @@ It includes a certificate generator, structured data population, and a clean Exp
 | **Deployment** | (Optional) Vercel / Render |
 | **Tools** | Postman, Git, GitHub, VS Code |
 
+
+## 📁 Project Structure
+```
+GIFTED VEINS/
+│── models/               # Mongoose models
+│── public/               # Static assets (CSS, JS, images)
+│── util/                 # JSON datasets + certificate generator
+│── views/                # EJS templates (forms, certificate page)
+│── index.js              # Main Express server
+│── .env                  # Environment variables
+│── package.json
+│── README.md
+```
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/tanmayee-satpathy/GIFTED_VEINS.git
+cd GIFTED_VEINS
+npm install
+npm start
+```
+Create a `.env` file:
+MONGO_URI=your-mongodb-url  
+KEY=your-secret-key  
+
 ---
+
+## 🔐 Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `MONGO_URI` | MongoDB Atlas connection string |
+| `KEY` | Secret key for cookie/session usage |
+
+---
+
+## 🔌 API Endpoints
+
+### 👤 Donor Routes
+| Method | Endpoint | Description |
+|:--------:|:----------:|:-------------:|
+| POST | `/donor/register` | Register a new donor |
+| GET  | `/donor/all` | View all donors |
+
+### ❤️ Recipient Routes
+| Method | Endpoint | Description |
+|:--------:|:----------:|:-------------:|
+| POST | `/recipient/request` | Create a blood request |
+| GET  | `/recipient/match` | Get matched donors |
+
+### 🏆 Certificate Generator
+| Method | Endpoint | Description |
+|:--------:|:-----------:|:-------------:|
+| GET | `/certificate/:id` | Generate donation certificate |
+
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+If you want to suggest improvements or new features:
+
+1. Fork this repository  
+2. Create a new branch  
+3. Make your changes  
+4. Submit a pull request  
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 👩‍💻 Author
+
+**Tanmayee Satpathy**  
+Full Stack Developer  
+🔗 LinkedIn: https://www.linkedin.com/in/tanmayee-satpathy-488369288/
+
 
